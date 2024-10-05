@@ -2,26 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background-color: #101010;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+  scroll-behavior: smooth;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  /* Gradient Animation */
+  @keyframes gradient-animation {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Wobble Animation */
+  @keyframes wobble {
+    0%,
+    100% {
+      transform: skew(0deg);
+    }
+    50% {
+      transform: skew(5deg);
+    }
+  }
+
+  /* Utility Classes */
+  .animate-gradient {
+    animation: gradient-animation 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-wobble {
+    animation: wobble 2s ease-in-out infinite;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg-gradient {
+  background: rgb(233, 27, 27);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.787) -20%,
+    rgba(16, 16, 16, 1) 30%,
+    rgba(16, 16, 16, 1) 70%,
+    rgba(243, 243, 243, 1) 200%
+  );
+}
+
+.header-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+}
+
+.sub-title {
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+
+#header {
+  /* Background Gradient */
+
+  background: #101010;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.408) -20%,
+    rgba(16, 16, 16, 1) 30%,
+    rgba(16, 16, 16, 1) 70%,
+    rgba(243, 243, 243, 0.413) 200%
+  );
 }

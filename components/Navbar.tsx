@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import TransitionLink from "./hooks/TransitionLink";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true); // Tracks navbar visibility
@@ -7,7 +8,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.scrollY;
 
       // Determine if scrolling up or down
       if (currentScrollPos < prevScrollPos || currentScrollPos <= 0) {
@@ -26,7 +27,7 @@ export default function Navbar() {
 
     // Cleanup the event listener on component unmount
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
+  }, [prevScrollPos]); // useEffect only runs when prevScrollPos changes
 
   return (
     <nav
@@ -35,23 +36,38 @@ export default function Navbar() {
       }`}
     >
       <div className="flex flex-grow justify-center items-center gap-8">
-        <a className="text-center text-white text-2xl font-light font-lato leading-8">
+        <TransitionLink
+          href="#AboutUs"
+          className="text-center text-white text-2xl font-light font-lato leading-8"
+        >
           About Us
-        </a>
-        <a className="text-center text-white text-2xl font-light font-lato leading-8">
+        </TransitionLink>
+        <TransitionLink
+          href="#Portfolio"
+          className="text-center text-white text-2xl font-light font-lato leading-8"
+        >
           Our Work
-        </a>
+        </TransitionLink>
       </div>
-      <a className="text-center text-white text-4xl font-bold font-lato leading-tight">
+      <TransitionLink
+        href="#/"
+        className="text-center text-white text-4xl font-bold font-lato leading-tight"
+      >
         SWD
-      </a>
+      </TransitionLink>
       <div className="flex flex-grow justify-center items-center gap-8">
-        <a className="text-center text-white text-2xl font-light font-lato leading-8">
+        <TransitionLink
+          href="#OurServices"
+          className="text-center text-white text-2xl font-light font-lato leading-8"
+        >
           Service
-        </a>
-        <a className="text-center text-white text-2xl font-light font-lato leading-8">
+        </TransitionLink>
+        <TransitionLink
+          href="#ContactUs"
+          className="text-center text-white text-2xl font-light font-lato leading-8"
+        >
           Contact Us
-        </a>
+        </TransitionLink>
       </div>
     </nav>
   );

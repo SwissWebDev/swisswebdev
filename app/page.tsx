@@ -1,5 +1,8 @@
 import AboutUs from "@/components/hooks/AboutUs";
+import ContactUs from "@/components/hooks/ContactUs";
+import FAQ from "@/components/hooks/FAQ";
 import Journey from "@/components/hooks/Journey";
+import OurPackages from "@/components/hooks/OurPackages";
 import OurServices from "@/components/hooks/OurServices";
 import Portfolio from "@/components/hooks/Portfolio";
 import Image from "next/image";
@@ -9,7 +12,7 @@ export default function Home() {
   return (
     <div className="snap-y snap-proximity overflow-x-hidden overflow-y-scroll h-screen max-w-[100vw] scroll-smooth">
       {/* First Section */}
-      <div className="w-screen h-screen snap-start">
+      <div className="w-screen h-screen snap-start relative">
         <div className="w-full h-full max-h-screen max-w-[100%] relative">
           {/* Content */}
           <div className="w-full h-full flex flex-row gap-5 justify-center items-center relative z-10">
@@ -39,6 +42,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div
+            className="blob absolute w-[400px] h-[400px] bg-white z-[9] bottom-0 right-0 blur-3xl rounded-full"
+            style={{ "--delay": "5s " } as React.CSSProperties}
+          ></div>
+          <div
+            className="blob absolute w-[400px] h-[400px] bg-white z-[9] top-0 left-100 blur-3xl rounded-full"
+            style={{ "--delay": "0s" } as React.CSSProperties}
+          ></div>
         </div>
       </div>
 
@@ -50,21 +61,36 @@ export default function Home() {
       </div>
 
       {/* Third Section */}
-      <div className="w-screen h-screen snap-start">
+      <div id="AboutUs" className="w-screen h-screen snap-start">
         <div className="w-full h-full bg-[#101010]">
           <AboutUs />
         </div>
       </div>
 
       {/* Fourth Section */}
-      <div className="w-screen h-screen snap-start">
+      <div id="Portfolio" className="w-screen h-screen snap-start">
         <div className="w-full h-full bg-[#101010]">
           <Portfolio />
         </div>
       </div>
-      <div className="w-screen h-screen snap-start">
+      <div id="OurServices" className="w-screen h-screen snap-start">
         <div className="w-full h-full bg-[#101010]">
           <OurServices />
+        </div>
+      </div>
+      <div className="w-screen h-screen snap-start">
+        <div className="w-full h-full bg-[#101010]">
+          <OurPackages />
+        </div>
+      </div>
+      <div className="w-screen h-screen snap-start">
+        <div className="w-full h-full bg-[#101010]">
+          <FAQ />
+        </div>
+      </div>
+      <div id="ContactUs" className="w-screen h-screen snap-start">
+        <div className="w-full h-full bg-[#101010]">
+          <ContactUs />
         </div>
       </div>
     </div>

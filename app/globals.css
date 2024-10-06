@@ -57,14 +57,39 @@ a {
     }
   }
 
+  /* style={{ "--delay": 2 } as React.CSSProperties} */
+  /* Adding the Delay to the Animation */
+
+  @keyframes blobanimation {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(50%);
+      transform: translateY(50%);
+    }
+    75% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   /* Utility Classes */
   .animate-gradient {
     animation: gradient-animation 8s ease infinite;
+
     background-size: 200% 200%;
   }
 
   .animate-wobble {
     animation: wobble 2s ease-in-out infinite;
+  }
+
+  .blob {
+    animation: blobanimation 10s infinite linear;
+    animation-delay: var(--delay);
   }
 }
 
@@ -106,4 +131,33 @@ a {
     rgba(16, 16, 16, 1) 70%,
     rgba(243, 243, 243, 0.413) 200%
   );
+}
+
+/* Scrollbar for WebKit browsers (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the width to your preference */
+}
+
+/* Track for the scrollbar */
+::-webkit-scrollbar-track {
+  background: #1d1d1d; /* BG2 color for the track */
+  border-radius: 5px; /* Rounded track */
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #ef4444; /* Accent color for the thumb */
+  border-radius: 10px; /* Rounded scrollbar thumb for a modern look */
+  border: 2px solid #1d1d1d; /* Create some spacing with the track, using BG2 color */
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f3f3f3; /* Change thumb color to Text color for interactivity */
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: thin; /* Use 'thin' for a more modern, slim scrollbar */
+  scrollbar-color: #ef4444 #1d1d1d; /* Thumb color (accent) followed by track color (BG2) */
 }

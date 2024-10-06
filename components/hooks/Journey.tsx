@@ -124,7 +124,7 @@ export default function Journey() {
                   }
                 }}
               >
-                <span>
+                <span className="pl-5">
                   {item.id}. {item.title}
                 </span>
                 {(selectedItem === item.id || hoveredItem === item.id) && (

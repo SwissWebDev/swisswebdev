@@ -10,7 +10,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="snap-y snap-proximity overflow-x-hidden overflow-y-scroll h-screen max-w-[100vw] scroll-smooth">
+    <div className="snap-y snap-proximity overflow-x-hidden overflow-y-scroll h-screen min-h-screen max-w-[100vw] scroll-smooth">
       {/* First Section */}
       <div className="w-screen h-screen snap-start relative">
         <div className="w-full h-full max-h-screen max-w-[100%] relative">
@@ -36,7 +36,7 @@ export default function Home() {
                 className="w-full relative overflow-hidden group"
               >
                 <p className="text-[#f3f3f3] sub-title italic font-extralight select-none pl-[5vw] relative z-10">
-                  Crafting Digital Experiences For You!
+                  Crafting Modern Digital Experiences For You!
                 </p>
                 <div className="absolute inset-0 bg-red-500 transform origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-500 z-0"></div>
               </div>
@@ -54,41 +54,44 @@ export default function Home() {
       </div>
 
       {/* Second Section */}
-      <div className="w-screen h-screen snap-start">
+      <div className="w-screen min-h-screen h-auto snap-start">
         <div className="flex justify-center h-full items-center flex-row bg-[#101010]">
           <Journey />
         </div>
       </div>
 
       {/* Third Section */}
-      <div id="AboutUs" className="w-screen h-screen snap-start">
+      <div
+        id="AboutUs"
+        className="w-screen h-auto min-h-screen h-screensnap-start"
+      >
         <div className="w-full h-full bg-[#101010]">
           <AboutUs />
         </div>
       </div>
 
       {/* Fourth Section */}
-      <div id="Portfolio" className="w-screen h-screen snap-start">
+      <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <Portfolio />
         </div>
       </div>
-      <div id="OurServices" className="w-screen h-screen snap-start">
+      <div id="OurServices" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <OurServices />
         </div>
       </div>
-      <div className="w-screen h-screen snap-start">
+      <div className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <OurPackages />
         </div>
       </div>
-      <div className="w-screen h-screen snap-start">
+      <div className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <FAQ />
         </div>
       </div>
-      <div id="ContactUs" className="w-screen h-screen snap-start">
+      <div id="ContactUs" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <ContactUs />
         </div>

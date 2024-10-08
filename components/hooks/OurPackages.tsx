@@ -10,9 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Label } from "@radix-ui/react-label";
 import { Badge } from "../ui/badge";
-import { motion } from "framer-motion";
 
 export default function OurPackages() {
   const packages = [
@@ -64,78 +62,70 @@ export default function OurPackages() {
   ];
 
   return (
-    <>
-      <div className="w-screen h-screen min-h-screen flex flex-col justify-start items-center">
-        <h1 className="text-6xl font-bold text-[#f3f3f3] mb-3">Our Packages</h1>
-        <p className="text-1xl text-center font-thin text-[#f3f3f3] max-w-[70%]">
-          "At Swiss Web Dev, we recognize that every business is unique. We
-          offer a range of customizable services designed to fit your specific
-          goals and budget. Whether you're launching your first website or need
-          a complex web application, we're here to help you succeed."
-        </p>
-        <div className="w-[90%] h-full flex flex-row justify-center gap-[100px] items-center">
-          {packages &&
-            packages.map((item) => (
-              <>
-                <Card
-                  key={item.id}
-                  className={`w-[30%] h-[60%] bg-[#1d1d1d] text-[#f3f3f3] flex flex-col justify-between relative flex-wrap ${
-                    item.popular ? "border-4 border-red-500" : "border-0"
-                  }`}
-                >
-                  {item.popular && (
-                    <Badge className="absolute top-[-12px] left-[30%] right-[30%] bg-red-500 text-[#f3f3f3] text-center flex justify-center items-center">
-                      Most Popular
-                    </Badge>
-                  )}
-                  <div>
-                    <CardHeader>
-                      <CardTitle className="">{item.PackageName}</CardTitle>
-                      <CardDescription>{item.SubTitle}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="list-disc list-inside font-light text-[80%] text-nowrap">
-                        {item.Features.map((feature) => (
-                          <li key={feature}>{feature}</li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </div>
-                  <CardFooter className="flex justify-center items-end mt-auto">
-                    <Button
-                      className={`hover:bg-[#f3f3f3] hover:text-[#101010] ${
-                        item.popular ? " bg-red-500" : ""
-                      } w-[50%]`}
-                      variant={"default"}
-                    >
-                      {item.ButtonText}
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </>
-            ))}
-        </div>
-        <div className="w-full h-[] flex flex-col justify-center items-center text-center">
-          <Card className="w-[90%] bg-[#0c0c0c] text-[#f3f3f3] border-[#4c4c4c]">
-            <CardHeader>
-              <CardTitle>Custom Solutions</CardTitle>
-              <CardDescription>
-                "Don't see exactly what you're looking for? We specialize in
-                creating bespoke web solutions. Let's collaborate to bring your
-                unique vision to life."
-              </CardDescription>
-            </CardHeader>
-            <CardFooter className="w-full flex justify-center items-center">
+    <div className="w-screen min-h-screen flex flex-col items-center">
+      <h1 className="text-6xl font-bold text-[#f3f3f3] mb-3">Our Packages</h1>
+      <p className="text-xl text-center font-thin text-[#f3f3f3] max-w-[70%]">
+        "At Swiss Web Dev, we recognize that every business is unique. We offer
+        a range of customizable services designed to fit your specific goals and
+        budget. Whether you're launching your first website or need a complex
+        web application, we're here to help you succeed."
+      </p>
+      <div className="w-[90%] h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8">
+        {packages.map((item) => (
+          <Card
+            key={item.id}
+            className={`bg-[#1d1d1d] text-[#f3f3f3] flex flex-col justify-between relative ${
+              item.popular ? "border-4 border-red-500" : "border-0"
+            }`}
+          >
+            {item.popular && (
+              <Badge className="absolute top-[-12px] select-none hover:bg-red-500 left-1/2 transform -translate-x-1/2 bg-red-500 text-[#f3f3f3]">
+                Most Popular
+              </Badge>
+            )}
+            <div className="flex-grow">
+              <CardHeader>
+                <CardTitle>{item.PackageName}</CardTitle>
+                <CardDescription>{item.SubTitle}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc list-inside font-light text-sm">
+                  {item.Features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </div>
+            <CardFooter className="flex justify-center items-end mt-auto">
               <Button
-                className="hover:invert transition-all"
+                className={`hover:bg-[#f3f3f3] hover:text-[#101010] ${
+                  item.popular ? "bg-red-500" : ""
+                } w-1/2`}
                 variant={"default"}
               >
-                Lets Talk About Your Project
+                {item.ButtonText}
               </Button>
             </CardFooter>
           </Card>
-        </div>
+        ))}
       </div>
-    </>
+      <div className="w-full flex flex-col items-center text-center">
+        <Card className="w-[90%] bg-[#0c0c0c] text-[#f3f3f3] border-[#4c4c4c]">
+          <CardHeader>
+            <CardTitle>Custom Solutions</CardTitle>
+            <CardDescription>
+              "Don't see exactly what you're looking for? We specialize in
+              creating bespoke web solutions. Let's collaborate to bring your
+              unique vision to life."
+            </CardDescription>
+          </CardHeader>
+          <CardFooter className="w-full flex justify-center items-center">
+            <Button className="hover:invert transition-all" variant={"default"}>
+              Let's Talk About Your Project
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
   );
 }

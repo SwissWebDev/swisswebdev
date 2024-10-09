@@ -74,14 +74,7 @@ export default function Home() {
       </div> */}
 
       {/* Fourth Section */}
-      <div
-        id="AboutUs"
-        className="w-screen h-auto min-h-screen h-screensnap-start"
-      >
-        <div className="w-full h-full bg-[#101010]">
-          <AboutUs />
-        </div>
-      </div>
+
       <div id="OurServices" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <OurServices />
@@ -100,6 +93,14 @@ export default function Home() {
       <div id="ContactUs" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <ContactUs />
+        </div>
+      </div>
+      <div
+        id="AboutUs"
+        className="w-screen h-auto min-h-screen h-screensnap-start"
+      >
+        <div className="w-full h-full bg-[#101010]">
+          <AboutUs />
         </div>
       </div>
     </div>

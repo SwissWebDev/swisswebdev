@@ -92,7 +92,7 @@ const projects: Project[] = [
   {
     title: "FP Waiver Signer",
     description:
-      "Developed a waiver signing platform for fpwaiver.com, providing an affordable solution for large car events.",
+      "Developed a waiver signing platform for fitzgeraldperformance.com, providing an affordable solution for large car events.",
     role: "Full Stack Development",
     impact:
       "Delivered a cost-effective and scalable waiver solution capable of managing over 25,000 participants, improving event efficiency and participant experience.",
@@ -108,7 +108,7 @@ const projects: Project[] = [
       "OAuth2",
     ],
     imageUrl: "https://fpwaiver.com/_next/image?url=%2Flogo.png&w=1200&q=75",
-    projectLink: "https://fpwaiver.com/",
+    projectLink: "https://fitzgeraldperformance.com",
   },
 ];
 
@@ -165,7 +165,7 @@ const ProjectsSection: React.FC = () => {
                 </motion.div>
               </DialogTrigger>
               {selectedProject && selectedProject.title === project.title && (
-                <DialogContent>
+                <DialogContent className="">
                   <DialogHeader>
                     <DialogTitle>{selectedProject.title}</DialogTitle>
                   </DialogHeader>
@@ -174,7 +174,7 @@ const ProjectsSection: React.FC = () => {
                       <img
                         src={project.imageUrl}
                         alt={project.title}
-                        className="w-full h-48 object-cover rounded-md mb-4"
+                        className="w-full h-48 object-contain rounded-md mb-4"
                       />
                     ) : (
                       <div className="w-full h-48 relative grid place-items-center">

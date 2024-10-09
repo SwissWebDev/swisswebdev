@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CursorFollower from "@/components/cursor/Cursor";
 import TransitionLayout from "@/components/hooks/TransitionLayout";
+import Footer from "@/components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <CursorFollower />
         {/* <Navbar /> */}
         <TransitionLayout>{children}</TransitionLayout>
+        {/* <Footer /> */}
       </body>
     </html>
   );

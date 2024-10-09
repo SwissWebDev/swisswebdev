@@ -3,6 +3,7 @@ import ContactUs from "@/components/hooks/ContactUs";
 import FAQ from "@/components/hooks/FAQ";
 import Journey from "@/components/hooks/Journey";
 import OurPackages from "@/components/hooks/OurPackages";
+import OurProjects from "@/components/hooks/OurProjects";
 import OurServices from "@/components/hooks/OurServices";
 import Portfolio from "@/components/hooks/Portfolio";
 import Image from "next/image";
@@ -61,19 +62,24 @@ export default function Home() {
       </div>
 
       {/* Third Section */}
+      <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
+        <div className="w-full h-full bg-[#101010]">
+          <OurProjects />
+        </div>
+      </div>
+      {/* <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
+        <div className="w-full h-full bg-[#101010]">
+          <Portfolio />
+        </div>
+      </div> */}
+
+      {/* Fourth Section */}
       <div
         id="AboutUs"
         className="w-screen h-auto min-h-screen h-screensnap-start"
       >
         <div className="w-full h-full bg-[#101010]">
           <AboutUs />
-        </div>
-      </div>
-
-      {/* Fourth Section */}
-      <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
-        <div className="w-full h-full bg-[#101010]">
-          <Portfolio />
         </div>
       </div>
       <div id="OurServices" className="w-screen min-h-screen h-auto snap-start">

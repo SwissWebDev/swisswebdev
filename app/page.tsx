@@ -1,3 +1,5 @@
+"use client";
+
 import AboutUs from "@/components/hooks/AboutUs";
 import ContactUs from "@/components/hooks/ContactUs";
 import FAQ from "@/components/hooks/FAQ";
@@ -6,14 +8,20 @@ import OurPackages from "@/components/hooks/OurPackages";
 import OurProjects from "@/components/hooks/OurProjects";
 import OurServices from "@/components/hooks/OurServices";
 import Portfolio from "@/components/hooks/Portfolio";
+import TransitionLink from "@/components/hooks/TransitionLink";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [scale, setScale] = useState(1);
+
   return (
-    <div className="snap-y snap-proximity overflow-x-hidden overflow-y-scroll h-screen min-h-screen max-w-[100vw] scroll-smooth">
+    <div className=" overflow-x-hidden overflow-y-scroll h-screen min-h-screen max-w-[100vw] scroll-smooth">
+      {" "}
+      {/* snap-y snap-proximity */}
       {/* First Section */}
-      <div className="w-screen h-screen snap-start relative">
+      <div className="w-screen h-screen snap-start fixed z-[-1]">
         <div className="w-full h-full max-h-screen max-w-[100%] relative">
           {/* Content */}
           <div className="w-full h-full flex flex-row gap-5 justify-center items-center relative z-10">
@@ -53,14 +61,13 @@ export default function Home() {
           ></div>
         </div>
       </div>
-
+      <div className="h-screen w-screen"></div>
       {/* Second Section */}
-      <div className="w-screen min-h-screen h-auto snap-start">
+      <div className="scroll-in w-screen min-h-screen h-auto snap-start">
         <div className="flex justify-center h-full items-center flex-row bg-[#101010]">
           <Journey />
         </div>
       </div>
-
       {/* Third Section */}
       <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
@@ -72,9 +79,25 @@ export default function Home() {
           <Portfolio />
         </div>
       </div> */}
-
       {/* Fourth Section */}
-
+      <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
+        <div className="w-full h-full bg-[#101010]">
+          <div className="h-screen flex justify-center items-center flex-col gap-10 text-[#f3f3f3]">
+            <h1 className="text-3xl lg:text-6xl font-bold">
+              Want to experience it for Yourself?
+            </h1>
+            <Button
+              className="bg-red-500 w-[50%] lg:w-[25%] hover:bg-[#f3f3f3] hover:text-[#101010] transition-colors"
+              variant={"default"}
+              asChild
+            >
+              <TransitionLink href="/live-demo/online-shop">
+                Start Experienece
+              </TransitionLink>
+            </Button>
+          </div>
+        </div>
+      </div>
       <div id="OurServices" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <OurServices />

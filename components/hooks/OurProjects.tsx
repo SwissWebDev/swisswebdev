@@ -135,9 +135,8 @@ const ProjectsSection: React.FC = () => {
             >
               <DialogTrigger asChild>
                 <motion.div
-                  className="bg-white shadow-lg rounded-lg p-6 transform transition-all hover:scale-105 cursor-pointer"
+                  className="bg-white shadow-lg rounded-lg p-6 transform transition-all hover:scale-105 cursor-pointer card-entry-anim"
                   onClick={() => setSelectedProject(project)}
-                  whileHover={{ scale: 1.05 }}
                 >
                   {project.imageUrl && project.imageUrl !== "" ? (
                     <img

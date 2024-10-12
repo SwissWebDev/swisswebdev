@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./animations.css";
 import Navbar from "@/components/Navbar";
 import CursorFollower from "@/components/cursor/Cursor";
 import TransitionLayout from "@/components/hooks/TransitionLayout";
@@ -32,8 +33,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CursorFollower />
-        {/* <Navbar /> */}
+        {/* <CursorFollower /> */}
+        <Navbar />
         <TransitionLayout>{children}</TransitionLayout>
         {/* <Footer /> */}
       </body>

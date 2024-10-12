@@ -26,10 +26,16 @@ export default function Navbar() {
     };
 
     // Add the scroll listener to the container
-    container!.addEventListener("scroll", handleScroll);
+    if (container) {
+      container!.addEventListener("scroll", handleScroll);
+    }
 
     // Clean up listener on unmount
-    return () => container!.removeEventListener("scroll", handleScroll);
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, []);
 
   const [hideNavBar, setHideNavBar] = useState(false);

@@ -12,7 +12,10 @@ import {
 } from "@/components/ui/card";
 import Cookies from "js-cookie";
 
+import { useToast } from "@/hooks/use-toast";
+
 export default function Home() {
+  const { toast } = useToast();
   interface Product {
     id: number;
     name: string;
@@ -92,7 +95,16 @@ export default function Home() {
               <p className="text-zinc-600">${product.price}</p>
             </CardContent>
             <CardFooter>
-              <Button onClick={() => addToCart(product)} className="w-full">
+              <Button
+                onClick={() => {
+                  toast({
+                    title: "Added to Cart",
+                    description: `${product.name} has been added to your cart.`,
+                  });
+                  addToCart(product);
+                }}
+                className="w-full"
+              >
                 Add to Cart
               </Button>
             </CardFooter>

@@ -7,11 +7,8 @@ import Journey from "@/components/hooks/Journey";
 import OurPackages from "@/components/hooks/OurPackages";
 import OurProjects from "@/components/hooks/OurProjects";
 import OurServices from "@/components/hooks/OurServices";
-import Portfolio from "@/components/hooks/Portfolio";
 import TransitionLink from "@/components/hooks/TransitionLink";
 import { Button } from "@/components/ui/button";
-import { transform } from "next/dist/build/swc";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {

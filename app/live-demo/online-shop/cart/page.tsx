@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/card";
 import Cookies from "js-cookie";
 
+import { toast } from "@/hooks/use-toast";
+
 export default function Cart() {
   interface CartItem {
     id: number;
@@ -60,7 +62,13 @@ export default function Cart() {
                 </div>
                 <Button
                   variant="destructive"
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => {
+                    toast({
+                      title: "Removed from Cart",
+                      description: `${item.name} has been removed from your cart.`,
+                    });
+                    removeFromCart(item.id);
+                  }}
                 >
                   Remove
                 </Button>

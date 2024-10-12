@@ -1,38 +1,51 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TransitionLink from "./hooks/TransitionLink";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true); // Tracks navbar visibility
-  const [prevScrollPos, setPrevScrollPos] = useState(0); // Tracks previous scroll position
-
+  const prevScrollPosRef = useRef(0); // Tracks previous scroll position
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
+    const container = document.getElementById("page");
 
-      // Determine if scrolling up or down
-      if (currentScrollPos < prevScrollPos || currentScrollPos <= 0) {
-        // Scrolling up or at the top of the page
+    const handleScroll = () => {
+      const currentScrollPos = container!.scrollTop; // use container.scrollTop for the scrollable element
+      console.log("Scroll position:", currentScrollPos);
+
+      if (
+        currentScrollPos < prevScrollPosRef.current ||
+        currentScrollPos <= 0
+      ) {
         setIsVisible(true);
       } else {
-        // Scrolling down
         setIsVisible(false);
       }
 
-      // Update previous scroll position
-      setPrevScrollPos(currentScrollPos);
+      prevScrollPosRef.current = currentScrollPos;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Add the scroll listener to the container
+    container!.addEventListener("scroll", handleScroll);
 
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]); // useEffect only runs when prevScrollPos changes
+    // Clean up listener on unmount
+    return () => container!.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const [hideNavBar, setHideNavBar] = useState(false);
+  const currURL = usePathname();
+  useEffect(() => {
+    if (currURL.includes("live-demo")) {
+      setHideNavBar(true);
+    } else {
+      setHideNavBar(false);
+    }
+  }, [currURL]);
 
   return (
     <nav
       className={`fixed w-full h-[70px] p-2.5 bg-black/25 border-b border-gray-800 backdrop-blur-lg flex justify-between items-center z-[200] transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
+        isVisible && !hideNavBar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="flex flex-grow justify-center items-center gap-8">

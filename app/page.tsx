@@ -10,18 +10,46 @@ import OurServices from "@/components/hooks/OurServices";
 import Portfolio from "@/components/hooks/Portfolio";
 import TransitionLink from "@/components/hooks/TransitionLink";
 import { Button } from "@/components/ui/button";
+import { transform } from "next/dist/build/swc";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [scale, setScale] = useState(1);
+  const prevScrollPosRef = useRef(0); // Tracks previous scroll position
+  const startScale = 1;
+
+  useEffect(() => {
+    const container = document.getElementById("page");
+
+    const handleScroll = () => {
+      const currentScrollPos = container!.scrollTop; // use container.scrollTop for the scrollable element
+      console.log("Sizing Scroll position:", currentScrollPos, scale);
+
+      setScale(currentScrollPos / 2000 + startScale);
+
+      prevScrollPosRef.current = currentScrollPos;
+    };
+
+    // Add the scroll listener to the container
+    container!.addEventListener("scroll", handleScroll);
+
+    // Clean up listener on unmount
+    return () => container!.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className=" overflow-x-hidden overflow-y-scroll h-screen min-h-screen max-w-[100vw] scroll-smooth">
+    <div
+      id="page"
+      className="snap-y snap-proximity  overflow-x-hidden overflow-y-scroll h-screen min-h-screen max-w-[100vw] scroll-smooth"
+    >
       {" "}
       {/* snap-y snap-proximity */}
       {/* First Section */}
-      <div className="w-screen h-screen snap-start fixed z-[-1]">
+      <div
+        style={{ transform: `scale(${scale})` }}
+        className="w-screen h-screen snap-start fixed z-[-1]"
+      >
         <div className="w-full h-full max-h-screen max-w-[100%] relative">
           {/* Content */}
           <div className="w-full h-full flex flex-row gap-5 justify-center items-center relative z-10">

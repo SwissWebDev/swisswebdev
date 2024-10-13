@@ -88,7 +88,7 @@ export default function Home() {
       </div>
       <div className="h-screen w-screen"></div>
       {/* Second Section */}
-      <div className="scroll-in w-screen min-h-screen h-auto snap-start">
+      <div className="w-screen min-h-screen h-auto snap-start">
         <div className="flex justify-center h-full items-center flex-row bg-[#101010]">
           <Journey />
         </div>

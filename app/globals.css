@@ -161,3 +161,18 @@ body {
   scrollbar-width: thin; /* Use 'thin' for a more modern, slim scrollbar */
   scrollbar-color: #ef4444 #1d1d1d; /* Thumb color (accent) followed by track color (BG2) */
 }
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(5);
+  }
+}
+
+#main {
+  animation-name: zoomIn;
+  animation-timing-function: linear;
+  animation-timeline: scroll();
+}

@@ -1,7 +1,7 @@
 // components/TransitionLayout.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, useAnimation } from "framer-motion";
 import {
@@ -20,9 +20,24 @@ const TransitionLayout: React.FC<{ children: React.ReactNode }> = ({
   const overlayAnimation = useAnimation();
   const textAnimation = useAnimation();
 
+  // Define the list of blacklisted URLs
+  const blacklistedUrls = [
+    "/live-demo/online-shop/cart",
+    "/live-demo/online-shop/admin-login",
+    "/live-demo/online-shop/admin-dashboard",
+  ];
+
+  // Helper function to check if a URL is blacklisted
+  const isBlacklisted = (url: string) => blacklistedUrls.includes(url);
+
   const startTransition = (url: string) => {
-    setNavigateUrl(url);
-    setIsTransitioning(true);
+    if (isBlacklisted(url)) {
+      // Navigate immediately without animation
+      router.push(url);
+    } else {
+      setNavigateUrl(url);
+      setIsTransitioning(true);
+    }
   };
 
   // When transitioning, animate overlay to cover screen, then navigate
@@ -51,6 +66,12 @@ const TransitionLayout: React.FC<{ children: React.ReactNode }> = ({
 
   // On page load or when pathname changes
   useEffect(() => {
+    if (isBlacklisted(pathname)) {
+      // Skip the animation if the current pathname is blacklisted
+      overlayAnimation.set({ y: "-100%" }); // Ensure overlay is off-screen
+      return;
+    }
+
     async function animateInitialLoad() {
       // Ensure overlay is at y:0 (covering the screen)
       await overlayAnimation.set({ y: 0 });

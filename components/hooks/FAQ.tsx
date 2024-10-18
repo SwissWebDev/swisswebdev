@@ -74,7 +74,7 @@ export default function FAQ() {
 
   return (
     <>
-      <div className="w-full min-h-screen gap-5 flex justify-center items-center flex-col text-center mt-10">
+      <div className="w-full min-h-screen gap-5 flex justify-start items-center flex-col text-center pt-10">
         <h1 className="text-5xl font-bold text-[#f3f3f3]">
           Frequently Asked Questions (FAQ)
         </h1>

@@ -51,11 +51,11 @@ export default function Component() {
     },
   ];
   return (
-    <div className="w-full flex min-h-[100%] justify-center items-center bg-[#101010]">
-      <section className="flex flex-col items-center justify-center w-[90%] bg-[#101010] text-[#f3f3f3]">
-        <h1 className="text-4xl font-bold">Portfolio</h1>
-        <p className="text-xl mb-8">Our Previous Work</p>
-        <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-4">
+    <div className="w-full h-auto min-h-[100%] flex justify-center items-center bg-[#101010] mt-3">
+      <section className="w-[90%] bg-[#101010] text-[#f3f3f3]">
+        <h1 className="text-4xl font-bold text-center">Portfolio</h1>
+        <p className="text-xl mb-8 text-center">Our Previous Work</p>
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {portfolioItems.map((item, index) => (
             <div
               key={index}

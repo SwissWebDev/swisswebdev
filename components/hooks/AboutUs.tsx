@@ -1,112 +1,77 @@
 // AboutUs.js
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 
 export default function AboutUs() {
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-  const [rectProps, setRectProps] = useState({ top: 0, height: 0 });
-  const itemRefs = useRef<HTMLDivElement[]>([]);
-
-  const items = [
+  const milestones = [
     {
-      id: 1,
-      title: "2018: The Beginning",
-      content: [
-        "<span class='font-bold'>MarvinK.</span> discovers his passion for coding.",
-        "Begins learning <span class='font-bold'>C#</span>, laying a strong foundation in software development.",
-      ],
-      align: "text-left",
+      year: "2018",
+      title: "Foundation",
+      description:
+        "Started learning <span class='font-bold'>C#</span>, establishing a strong software development base.",
     },
     {
-      id: 2,
-      title: "2018 – 2021: Building Skills",
-      content: [
-        "Continues to hone programming abilities.",
-        "Explores various projects to apply and expand knowledge in <span class='font-bold'>C#</span>.",
-      ],
-      align: "text-right",
+      year: "2018 - 2021",
+      title: "Skill Development",
+      description:
+        "Engaged in diverse projects to deepen expertise in <span class='font-bold'>C#</span>.",
     },
     {
-      id: 3,
-      title: "2021 - 2024: Transition to Web Development",
-      content: [
-        "Makes the shift to web development technologies.",
-        "Starts with the fundamentals: <span class='font-bold'>HTML</span>, <span class='font-bold'>CSS</span>, and <span class='font-bold'>JavaScript</span>.",
-        "Quickly advances to modern frameworks like <span class='font-bold'>React</span> and <span class='font-bold'>Next.js</span>.",
-      ],
-      align: "text-left",
+      year: "2021 - 2024",
+      title: "Web Development Transition",
+      description:
+        "Shifted to web technologies, mastering <span class='font-bold'>HTML</span>, <span class='font-bold'>CSS</span>, <span class='font-bold'>JavaScript</span>, and advanced frameworks like <span class='font-bold'>React</span> and <span class='font-bold'>Next.js</span>.",
     },
     {
-      id: 4,
-      title: "2024: Establishing Swiss Web Dev",
-      content: [
-        "Founds Swiss Web Dev with a vision to deliver exceptional web solutions.",
-        "Takes on the role of <span class='font-bold'>Head Developer</span>.",
-      ],
-      align: "text-right",
+      year: "2024",
+      title: "Swiss Web Dev Established",
+      description:
+        "Founded Swiss Web Dev to provide high-quality web solutions, assuming the role of <span class='font-bold'>Head Developer</span>.",
     },
   ];
 
-  useEffect(() => {
-    if (hoveredItem !== null) {
-      const el = itemRefs.current[hoveredItem];
-      if (el) {
-        const { offsetTop, offsetHeight } = el;
-        setRectProps({ top: offsetTop, height: offsetHeight });
-      }
-    }
-    // Do not update rectProps when hoveredItem is null to keep the rectangle in place
-  }, [hoveredItem]);
-
   return (
-    <div className="w-full min-h-screen bg-[#101010] pt-20 text-[#f3f3f3] p-8 relative">
-      <div className="text-center mb-8">
-        <h1 className="text-5xl  font-bold">About Us</h1>
-        <p className="text-3xl">Our Story</p>
-      </div>
-      <div className="space-y-8 relative">
-        {/* Always render the background rectangle */}
-        <motion.div
-          className="absolute left-0 right-0 bg-[#f3f3f3] pointer-events-none z-0"
-          style={{ top: rectProps.top, height: rectProps.height }}
-          animate={{
-            top: rectProps.top,
-            height: rectProps.height,
-            opacity: hoveredItem !== null ? 1 : 0,
-          }}
-          initial={false}
-          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        />
-        {items.map((item, index) => (
-          <React.Fragment key={item.id}>
-            <div
-              ref={(el) => {
-                itemRefs.current[index] = el!;
-              }}
-              className={`relative group ${item.align} z-10 py-4 cursor-pointer`}
-              onMouseEnter={() => setHoveredItem(index)}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
+    <section className="w-full py-12 md:py-24 lg:py-32 text-[#101010] bg-[#f3f3f3]">
+      <div className="container px-4 md:px-6">
+        <div className="grid gap-10">
+          {/* Header Section */}
+          <div className="space-y-2 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Our Journey
+            </h2>
+            <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl">
+              Follow along as we share the key milestones in our company's
+              history.
+            </p>
+          </div>
+
+          {/* Timeline Section */}
+          <div className="relative grid gap-10 pl-6 after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-muted-foreground/20">
+            {milestones.map((milestone, index) => (
               <div
-                className={`transition-colors duration-200 ${
-                  hoveredItem === index ? "font-bold text-[#101010]" : ""
-                }`}
+                key={index}
+                className="grid gap-2 text-sm relative border-b-2"
               >
-                <h2 className="text-xl font-bold">{item.title}</h2>
-                <ul className="list-none pl-5">
-                  {item.content.map((text, idx) => (
-                    <li key={idx} dangerouslySetInnerHTML={{ __html: text }} />
-                  ))}
-                </ul>
+                {/* Dot Indicator */}
+                <div className="aspect-square w-3 bg-primary rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1" />
+
+                {/* Milestone Title */}
+                <div className="font-medium text-2xl">
+                  <span className="text-primary">{milestone.year}</span> -{" "}
+                  {milestone.title}
+                </div>
+
+                {/* Milestone Description */}
+                <div
+                  className="text-muted-foreground text-1xl"
+                  dangerouslySetInnerHTML={{ __html: milestone.description }}
+                />
               </div>
-            </div>
-            {/* Ensure the hr is part of the group for hover effect */}
-            <hr className="border-gray-700" />
-          </React.Fragment>
-        ))}
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

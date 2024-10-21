@@ -1,7 +1,7 @@
 // Journey.js
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Journey() {
@@ -73,80 +73,126 @@ export default function Journey() {
     }
   }, [hoveredItem, selectedItem]);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
   // Determine which item's details to display on the right
   const currentItemId = hoveredItem !== null ? hoveredItem : selectedItem;
 
   return (
     <div className="flex justify-center items-center w-full h-full min-h-screen bg-[#101010] text-[#f3f3f3]">
-      <div className="flex flex-col justify-between w-1/2 p-8">
-        <h1 className="text-5xl font-bold mb-2">Our Journey Together</h1>
-        <p className="text-md text-gray-400 mb-4">
-          From Vision to Reality and Beyond
-        </p>
-        <div className="flex-1 relative">
-          {currentItemId !== null && (
-            <motion.div
-              className="absolute left-0 right-0 bg-[#f3f3f3] rounded-md pointer-events-none"
-              style={{ top: rectProps.top, height: rectProps.height }}
-              animate={{
-                top: rectProps.top,
-                height: rectProps.height,
-                opacity: 1,
-              }}
-              initial={{ opacity: 0 }}
-              transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            />
-          )}
-          <ul className="flex flex-col relative z-10">
-            {items.map((item) => (
-              <li
-                key={item.id}
-                ref={(el) => {
-                  itemRefs.current[item.id] = el!;
-                }}
-                className={`cursor-pointer text-2xl hover:text-[#101010] flex items-center justify-between py-4 transition-colors duration-200 ${
-                  selectedItem === item.id || hoveredItem === item.id
-                    ? "font-bold  text-red-500"
-                    : ""
-                } select-none`}
-                onMouseEnter={() => {
-                  setHoveredItem(item.id);
-                }}
-                onMouseLeave={() => {
-                  setHoveredItem(null);
-                }}
-                onClick={() => {
-                  if (selectedItem === item.id) {
-                    setSelectedItem(null);
-                  } else {
-                    setSelectedItem(item.id);
-                    updateRectProps(item.id);
-                  }
-                }}
-              >
-                <span className="pl-5">
-                  {item.id}. {item.title}
-                </span>
-                {(selectedItem === item.id || hoveredItem === item.id) && (
-                  <span className="ml-2"></span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="flex items-center h-full min-h-screen bg-[#f3f3f3] text-[#101010] justify-center w-1/2 p-8">
-        {currentItemId && (
-          <div>
-            <h2 className="text-4xl font-bold mb-2 ">
-              {items.find((item) => item.id === currentItemId)?.title}
-            </h2>
-            <p className="mt-4 text-md">
-              {items.find((item) => item.id === currentItemId)?.description}
+      {isMobile ? (
+        <>
+          <div className="w-full min-h-screen h-auto flex justify-start items-center flex-col text-center mt-[5rem]">
+            <h1 className="text-5xl font-bold mb-2">Our Journey Together</h1>
+            <p className="text-md text-gray-400 mb-4 w-[90vw]">
+              From Vision to Reality and Beyond
             </p>
+            <div>
+              {items !== null && (
+                <div className="w-full flex justify-center items-center flex-col mt-5">
+                  {items.map((item) => (
+                    <div
+                      key={item.id}
+                      className="w-[90%] h-auto flex justify-center items-center flex-col mb-4"
+                    >
+                      <h1 className="text-base font-bold">
+                        {item.id}. {item.title}
+                      </h1>
+                      <p className="text-sm font-thin">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        )}
-      </div>
+        </>
+      ) : (
+        <>
+          {" "}
+          <div className="flex flex-col justify-between w-1/2 p-8">
+            <h1 className="text-5xl font-bold mb-2">Our Journey Together</h1>
+            <p className="text-md text-gray-400 mb-4 w-[90vw]">
+              From Vision to Reality and Beyond
+            </p>
+            <div className="flex-1 relative">
+              {currentItemId !== null && (
+                <motion.div
+                  className="absolute left-0 right-0 bg-[#f3f3f3] rounded-md pointer-events-none"
+                  style={{ top: rectProps.top, height: rectProps.height }}
+                  animate={{
+                    top: rectProps.top,
+                    height: rectProps.height,
+                    opacity: 1,
+                  }}
+                  initial={{ opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+              <ul className="flex flex-col relative z-10">
+                {items.map((item) => (
+                  <li
+                    key={item.id}
+                    ref={(el) => {
+                      itemRefs.current[item.id] = el!;
+                    }}
+                    className={`cursor-pointer text-2xl hover:text-[#101010] flex items-center justify-between py-4 transition-colors duration-200 ${
+                      selectedItem === item.id || hoveredItem === item.id
+                        ? "font-bold  text-red-500"
+                        : ""
+                    } select-none`}
+                    onMouseEnter={() => {
+                      setHoveredItem(item.id);
+                    }}
+                    onMouseLeave={() => {
+                      setHoveredItem(null);
+                    }}
+                    onClick={() => {
+                      if (selectedItem === item.id) {
+                        setSelectedItem(null);
+                      } else {
+                        setSelectedItem(item.id);
+                        updateRectProps(item.id);
+                      }
+                    }}
+                  >
+                    <span className="pl-5">
+                      {item.id}. {item.title}
+                    </span>
+                    {(selectedItem === item.id || hoveredItem === item.id) && (
+                      <span className="ml-2"></span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="flex items-center h-full min-h-screen bg-[#f3f3f3] text-[#101010] justify-center w-1/2 p-8">
+            {currentItemId && (
+              <div>
+                <h2 className="text-4xl font-bold mb-2 ">
+                  {items.find((item) => item.id === currentItemId)?.title}
+                </h2>
+                <p className="mt-4 text-md">
+                  {items.find((item) => item.id === currentItemId)?.description}
+                </p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }

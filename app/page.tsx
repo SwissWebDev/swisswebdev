@@ -69,7 +69,7 @@ export default function Home() {
                 id="headerSubTitle"
                 className="w-full relative overflow-hidden group"
               >
-                <p className="text-[#f3f3f3] sub-title italic font-extralight select-none pl-[5vw] relative z-10">
+                <p className="text-[#f3f3f3] sub-title italic font-extralight select-none pl-[5vw] w-[90%] relative z-10">
                   Crafting Modern Digital Experiences For You!
                 </p>
                 <div className="absolute inset-0 bg-red-500 transform origin-center scale-y-0 group-hover:scale-y-100 transition-transform duration-500 z-0"></div>
@@ -108,7 +108,7 @@ export default function Home() {
       <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <div className="h-screen flex justify-center items-center flex-col gap-10 text-[#f3f3f3]">
-            <h1 className="text-3xl lg:text-6xl font-bold">
+            <h1 className="text-3xl lg:text-6xl font-bold text-center">
               Want to experience it for Yourself?
             </h1>
             <Button

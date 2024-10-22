@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ContactUs() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-8 pt-[4rem]">
       <h1 className="text-3xl font-bold mb-4">Get in Touch with Us</h1>
       <p className="mb-8 text-center">
         "Ready to take your online presence to the next level? We'd love to hear

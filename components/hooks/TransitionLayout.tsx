@@ -110,6 +110,21 @@ const TransitionLayout: React.FC<{ children: React.ReactNode }> = ({
     animateInitialLoad();
   }, [pathname]); // Run whenever the pathname changes
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
   return (
     <TransitionProvider>
       <TransitionContext.Provider value={{ startTransition }}>
@@ -124,13 +139,27 @@ const TransitionLayout: React.FC<{ children: React.ReactNode }> = ({
             animate={overlayAnimation}
           >
             <div className="w-full h-full flex justify-center items-center">
-              <motion.h1
-                className="text-[#101010] font-bold text-[400%] m-0"
-                initial={{ x: "-100%", opacity: 0 }}
-                animate={textAnimation}
-              >
-                Swiss Web Development
-              </motion.h1>
+              {isMobile ? (
+                <>
+                  <motion.h1
+                    className="text-[#101010] font-bold text-[100%] m-0"
+                    initial={{ x: "-100%", opacity: 0 }}
+                    animate={textAnimation}
+                  >
+                    Swiss Web Development
+                  </motion.h1>
+                </>
+              ) : (
+                <>
+                  <motion.h1
+                    className="text-[#101010] font-bold text-[400%] m-0"
+                    initial={{ x: "-100%", opacity: 0 }}
+                    animate={textAnimation}
+                  >
+                    Swiss Web Development
+                  </motion.h1>
+                </>
+              )}
             </div>
           </motion.div>
         </motion.div>

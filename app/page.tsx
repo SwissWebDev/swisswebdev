@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [scale, setScale] = useState(1);
+  const [opacity, setOpacity] = useState(1);
   const prevScrollPosRef = useRef(0); // Tracks previous scroll position
   const startScale = 1;
 
@@ -24,6 +25,7 @@ export default function Home() {
       console.log("Sizing Scroll position:", currentScrollPos, scale);
 
       setScale(currentScrollPos / 2000 + startScale);
+      setOpacity(1 - currentScrollPos / 1000);
 
       prevScrollPosRef.current = currentScrollPos;
     };
@@ -44,7 +46,7 @@ export default function Home() {
       {/* snap-y snap-proximity */}
       {/* First Section */}
       <div
-        style={{ transform: `scale(${scale})` }}
+        style={{ transform: `scale(${scale})`, opacity: opacity }}
         className="w-screen h-screen snap-start fixed z-[-1]"
       >
         <div className="w-full h-full max-h-screen max-w-[100%] relative">

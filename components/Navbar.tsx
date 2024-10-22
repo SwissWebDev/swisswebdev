@@ -2,17 +2,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import TransitionLink from "./hooks/TransitionLink";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true); // Tracks navbar visibility
   const prevScrollPosRef = useRef(0); // Tracks previous scroll position
+  const NavbarRef = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState(false);
 
   // Screen size check, if mobile, hide navbar and show hamburger menu
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -78,7 +80,10 @@ export default function Navbar() {
 
   return isMobile ? (
     <nav
-      className={`bg-[#101010] text-white z-50 w-screen absolute top-0 right-0 h-auto`}
+      ref={NavbarRef}
+      className={`bg-[#101010] text-white z-50 w-screen absolute top-0 right-0 h-auto transition-transform duration-300  ${
+        isVisible && !hideNavBar ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16">
         <div className="md:hidden flex h-full justify-between items-center w-full">
@@ -136,7 +141,8 @@ export default function Navbar() {
     </nav>
   ) : (
     <nav
-      className={`fixed w-full h-[70px] p-2.5 bg-[#101010] flex justify-between items-center z-[200] transition-transform duration-300 ${
+      ref={NavbarRef}
+      className={`fixed w-full h-[70px] p-2.5 bg-[#101010] flex justify-between items-center z-[50] transition-transform duration-300 ${
         isVisible && !hideNavBar ? "translate-y-0" : "-translate-y-full"
       }`}
     >

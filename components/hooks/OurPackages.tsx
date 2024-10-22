@@ -78,7 +78,7 @@ export default function OurPackages() {
 
   return isMobile ? (
     <>
-      <div className="w-screen min-h-screen flex flex-col items-center">
+      <div className="w-screen min-h-screen flex flex-col items-center pt-10">
         <div className="w-full flex justify-start items-center flex-col">
           <h1 className="text-2xl font-bold text-[#f3f3f3] mb-3">
             Our Packages

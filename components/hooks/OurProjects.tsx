@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogTrigger,
@@ -115,9 +115,23 @@ const projects: Project[] = [
 const ProjectsSection: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", checkScreenSize);
+
+    checkScreenSize();
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
     <section className="projects-section bg-gray-100 py-12">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 min-h-screen h-auto">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Our Projects & Impact
         </h2>
@@ -164,7 +178,9 @@ const ProjectsSection: React.FC = () => {
                 </motion.div>
               </DialogTrigger>
               {selectedProject && selectedProject.title === project.title && (
-                <DialogContent className="">
+                <DialogContent
+                  className={`${isMobile ? "dialog-content" : ""}`}
+                >
                   <DialogHeader>
                     <DialogTitle>{selectedProject.title}</DialogTitle>
                   </DialogHeader>

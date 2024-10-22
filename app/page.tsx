@@ -96,6 +96,11 @@ export default function Home() {
           <Journey />
         </div>
       </div>
+      <div className="w-screen min-h-screen h-auto snap-start">
+        <div className="w-full h-full flex justify-center items-start bg-[#f3f3f3] text-[#101010]">
+          <GrowthData />
+        </div>
+      </div>
       {/* Third Section */}
       <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
@@ -134,11 +139,6 @@ export default function Home() {
       <div className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <OurPackages />
-        </div>
-      </div>
-      <div className="w-screen min-h-screen h-auto snap-start">
-        <div className="w-full h-full flex justify-center items-start bg-[#f3f3f3] text-[#101010]">
-          <GrowthData />
         </div>
       </div>
       <div className="w-screen min-h-screen h-auto snap-start">

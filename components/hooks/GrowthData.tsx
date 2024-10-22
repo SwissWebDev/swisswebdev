@@ -45,7 +45,7 @@ export default function GrowthData() {
   }, []);
 
   return (
-    <div className="w-[90%] min-h-full h-auto max-w-6xl mx-auto p-2 sm:p-4 space-y-4 sm:space-y-8 pt-[4rem]">
+    <div className="w-[90%] min-h-full h-auto max-w-6xl mx-auto p-2 pt-[4rem]">
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-8">
         Boost Your Business with a Website
       </h2>

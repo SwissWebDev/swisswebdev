@@ -3,6 +3,7 @@
 import AboutUs from "@/components/hooks/AboutUs";
 import ContactUs from "@/components/hooks/ContactUs";
 import FAQ from "@/components/hooks/FAQ";
+import GrowthData from "@/components/hooks/GrowthData";
 import Journey from "@/components/hooks/Journey";
 import OurPackages from "@/components/hooks/OurPackages";
 import OurProjects from "@/components/hooks/OurProjects";
@@ -133,6 +134,11 @@ export default function Home() {
       <div className="w-screen min-h-screen h-auto snap-start">
         <div className="w-full h-full bg-[#101010]">
           <OurPackages />
+        </div>
+      </div>
+      <div className="w-screen min-h-screen h-auto snap-start">
+        <div className="w-full h-full flex justify-center items-start bg-[#f3f3f3] text-[#101010]">
+          <GrowthData />
         </div>
       </div>
       <div className="w-screen min-h-screen h-auto snap-start">

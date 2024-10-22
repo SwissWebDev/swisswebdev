@@ -21,7 +21,7 @@ export default function OurServices() {
   return isMobile ? (
     <>
       {" "}
-      <div className="bg-[#101010] text-white p-8 min-h-screen h-auto flex justify-start items-center flex-col pt-[4rem]">
+      <div className="bg-[#101010] invert text-white p-8 min-h-screen h-auto flex justify-start items-center flex-col pt-[4rem]">
         <div className="h-fit w-[90%] flex justify-center items-center flex-col pb-3">
           <h1 className="text-2xl font-bold text-center">Our Services</h1>
           <p className="text-base font-medium mt-2 text-center">

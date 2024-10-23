@@ -38,7 +38,6 @@ export default function RootLayout({
         {/* <CursorFollower /> */}
         <Navbar />
         <TransitionLayout>{children}</TransitionLayout>
-        {/* <Footer /> */}
         <Toaster />
       </body>
     </html>

@@ -41,7 +41,7 @@ export default function OurPackages() {
         "Contact form integration",
         "Social media linking",
       ],
-      ButtonText: "Request a Quote",
+      ButtonText: "Contact us",
       popular: false,
     },
     {
@@ -56,7 +56,7 @@ export default function OurPackages() {
         "Basic e-commerce functionality",
         "Google Analytics integration",
       ],
-      ButtonText: "Request a Quote",
+      ButtonText: "Contact us",
       popular: true,
     },
     {

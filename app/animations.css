@@ -16,7 +16,7 @@
 
 .card-entry-anim {
   animation: card-entry-anim linear;
-  animation-timeline: view();
+  animation-timeline: view(30vh 0px);
   animation-range: entry;
 }
 

@@ -148,7 +148,7 @@ export default function Navbar() {
     >
       <div className="flex flex-grow justify-center items-center gap-8">
         <a
-          href="#AboutUs"
+          href="/#AboutUs"
           className="text-center text-white text-2xl font-light font-lato leading-8"
         >
           About Us
@@ -161,20 +161,20 @@ export default function Navbar() {
         </a>
       </div>
       <a
-        href="#/"
+        href="/"
         className="text-center text-white text-4xl font-bold font-lato leading-tight"
       >
-        SWD
+        SWDK
       </a>
       <div className="flex flex-grow justify-center items-center gap-8">
         <a
-          href="#OurServices"
+          href="/#OurServices"
           className="text-center text-white text-2xl font-light font-lato leading-8"
         >
           Service
         </a>
         <a
-          href="#ContactUs"
+          href="/#ContactUs"
           className="text-center text-white text-2xl font-light font-lato leading-8"
         >
           Contact Us

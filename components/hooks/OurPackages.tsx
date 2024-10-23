@@ -42,6 +42,7 @@ export default function OurPackages() {
         "Social media linking",
       ],
       ButtonText: "Contact us",
+      Link: "/contact",
       popular: false,
     },
     {
@@ -57,6 +58,7 @@ export default function OurPackages() {
         "Google Analytics integration",
       ],
       ButtonText: "Contact us",
+      Link: "/contact",
       popular: true,
     },
     {
@@ -72,6 +74,7 @@ export default function OurPackages() {
         "Custom web applications and third-party integrations",
       ],
       ButtonText: "Contact us",
+      Link: "/contact",
       popular: false,
     },
   ];
@@ -121,6 +124,10 @@ export default function OurPackages() {
                       item.popular ? "bg-red-500" : ""
                     } w-1/2`}
                     variant={"default"}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = item.Link;
+                    }}
                   >
                     {item.ButtonText}
                   </Button>

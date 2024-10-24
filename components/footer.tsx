@@ -54,7 +54,7 @@ export default function Footer() {
             Crafting Modern Digital Experiences For You!
           </p>
           <br />
-          <p className="font-thin text-base">© 2024 Swiss Web Dev</p>
+          <p className="font-thin text-base">© 2024 Swiss Web Dev Kiefer</p>
         </div>
         <div className="w-full h-full flex justify-center items-center flex-col text-center">
           <h1 className="font-bold text-xl">Legal Links</h1>

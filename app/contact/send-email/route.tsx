@@ -34,9 +34,9 @@ export async function POST(req: Request) {
 
   async function sendEmailFromContactUs() {
     try {
-      const msg = await mg.messages.create("mg.swisswebdev.ch", {
-        from: "marvin.kiefer@swisswebdev.ch",
-        to: ["marvin.kiefer@swisswebdev.ch"],
+      const msg = await mg.messages.create(process.env.MAILGUN_DOMAIN!, {
+        from: process.env.MAILGUN_FROM!,
+        to: [process.env.MAILGUN_TO!],
         subject: `Contact Form Submission:  ${emailObject.email}`,
         text: "Testing some Mailgun awesomeness!",
         html: `<!DOCTYPE html>
@@ -139,9 +139,9 @@ export async function POST(req: Request) {
 
   async function sendEmailFromContactPage() {
     try {
-      const msg = await mg.messages.create("mg.swisswebdev.ch", {
-        from: "marvin.kiefer@swisswebdev.ch",
-        to: ["marvin.kiefer@swisswebdev.ch"],
+      const msg = await mg.messages.create(process.env.MAILGUN_DOMAIN!, {
+        from: process.env.MAILGUN_FROM!,
+        to: [process.env.MAILGUN_TO!],
         subject: `Contact Form Submission:  ${emailObject.email}`,
         text: "Testing some Mailgun awesomeness!",
         html: `<!DOCTYPE html>

@@ -37,6 +37,7 @@ export default function ContacUs() {
       email: event.target.email.value,
       product: event.target.product.value,
       message: event.target.message.value,
+      form: "contactus",
     };
 
     try {

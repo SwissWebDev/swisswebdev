@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "../ui/badge";
+import TransitionLink from "./TransitionLink";
 
 export default function OurPackages() {
   const [isMobile, setIsMobile] = useState(false);
@@ -119,18 +120,19 @@ export default function OurPackages() {
                   </CardContent>
                 </div>
                 <CardFooter className="flex justify-center items-end mt-auto">
-                  <Button
+                  <TransitionLink
                     className={`hover:bg-[#f3f3f3] hover:text-[#101010] ${
                       item.popular ? "bg-red-500" : ""
                     } w-1/2`}
-                    variant={"default"}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href = item.Link;
-                    }}
+                    // variant={"default"}
+                    // onClick={(e) => {
+                    //   e.preventDefault();
+                    //   window.location.href = item.Link;
+                    // }}
+                    href={item.Link}
                   >
                     {item.ButtonText}
-                  </Button>
+                  </TransitionLink>
                 </CardFooter>
               </Card>
             ))}{" "}

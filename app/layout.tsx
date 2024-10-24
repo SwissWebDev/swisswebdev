@@ -35,9 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-auto`}
       >
-        {/* <CursorFollower /> */}
-        <Navbar />
-        <TransitionLayout>{children}</TransitionLayout>
+        {/* <CursorFollower /> */}{" "}
+        <TransitionLayout>
+          <Navbar />
+          {children}
+        </TransitionLayout>
         <Toaster />
       </body>
     </html>

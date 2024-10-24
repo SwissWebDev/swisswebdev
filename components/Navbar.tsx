@@ -160,12 +160,12 @@ export default function Navbar() {
           Our Work
         </a>
       </div>
-      <a
+      <TransitionLink
         href="/"
         className="text-center text-white text-4xl font-bold font-lato leading-tight"
       >
         SWDK
-      </a>
+      </TransitionLink>
       <div className="flex flex-grow justify-center items-center gap-8">
         <a
           href="/#OurServices"
@@ -173,12 +173,12 @@ export default function Navbar() {
         >
           Service
         </a>
-        <a
-          href="/#ContactUs"
+        <TransitionLink
+          href="/contact"
           className="text-center text-white text-2xl font-light font-lato leading-8"
         >
           Contact Us
-        </a>
+        </TransitionLink>
       </div>
     </nav>
   );

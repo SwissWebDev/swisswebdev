@@ -83,15 +83,15 @@ export default function ContacUs() {
           <h1 className="text-center font-thin text-base">Sending Email...</h1>
         </div>
       )}
-      <div className="overflow-x-hidden overflow-y-scroll h-screen min-h-screen w-full max-w-[100vw] scroll-smooth pt-[4rem] flex justify-center items-center">
-        <div className="w-full h-full flex justify-center items-center flex-col text-[#101010]">
-          <div className="w-[90%] h-full flex justify-center items-center flex-col">
+      <div className="overflow-x-hidden overflow-y-scroll h-auto min-h-screen w-full max-w-[100vw] scroll-smooth pt-[4rem] flex justify-center items-center">
+        <div className="w-full h-auto flex justify-center items-center flex-col text-[#101010]">
+          <div className="w-[90%] h-auto flex justify-start items-center flex-col gap-3">
             <h1 className="font-bold text-3xl pt-5 text-[#f3f3f3]">
               Contact Us!
             </h1>
             <form
               onSubmit={handleSubmit}
-              className="w-[50%] h-full flex justify-center items-start flex-col gap-1"
+              className="w-[50%] h-auto flex justify-center items-start flex-col gap-1"
             >
               <Label className="text-[#f3f3f3]" htmlFor="email">
                 Email

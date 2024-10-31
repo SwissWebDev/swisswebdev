@@ -28,7 +28,10 @@ export default function ProjectTrackingSection() {
   }, []);
 
   return (
-    <div id="project-tracking-section" className="w-full h-full">
+    <div
+      id="project-tracking-section"
+      className="w-full h-full flex justify-center items-center flex-col"
+    >
       <div className="w-full h-auto bg-[#f5f5f5] text-[#101010] py-20">
         <div
           className={`container mx-auto px-4 transition-all duration-1000 ${

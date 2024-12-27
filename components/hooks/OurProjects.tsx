@@ -107,7 +107,7 @@ const projects: Project[] = [
       "TailwindCSS",
       "OAuth2",
     ],
-    imageUrl: "https://fpwaiver.com/_next/image?url=%2Flogo.png&w=1200&q=75",
+    imageUrl: "",
     projectLink: "https://fitzgeraldperformance.com",
   },
 ];

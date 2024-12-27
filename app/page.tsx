@@ -65,7 +65,7 @@ export default function Home() {
                   className="w-full relative overflow-hidden group"
                 >
                   <h1 className="hover:text-red-500 text-[#f3f3f3] transition-colors header-title font-bold w-full pl-[5vw] select-none relative z-10">
-                    Swiss Web Dev
+                    Swiss Web Development
                   </h1>
                   <div className="absolute inset-0 group-hover:bg-[#f3f3f3] bg-red-500 transform origin-center opacity-100 scale-y-100 transition-all duration-500 z-0"></div>
                 </div>
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="h-screen w-screen"></div>
         {/* Second Section */}
         <div className="w-screen min-h-screen h-auto snap-start">
-          <div className="w-full h-full pb-5 flex justify-center items-start bg-[#f3f3f3] text-[#101010] invert">
+          <div className="w-full h-screen pb-5 flex justify-center items-center bg-[#f3f3f3] text-[#101010] invert">
             <GrowthData />
           </div>
         </div>

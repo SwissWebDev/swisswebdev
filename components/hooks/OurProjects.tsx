@@ -26,6 +26,29 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Insider ( Work in Progress )",
+    description:
+      "A streamlined solution for developers and clients to collaborate effectively by visualizing project progress, providing feedback, and managing team access.",
+    role: "Full-Stack Development & Infrastructure Management",
+    impact:
+      "Simplified client-developer communication by providing a clear overview of project progress and fostering a collaborative environment with real-time feedback and updates.",
+    detailedDescription:
+      "Insider is a tool designed for developers to showcase progress to clients visually and interactively. Clients can track completed tasks, review ongoing work, and provide feedback through comments. Additionally, the platform allows easy team management by enabling invitations for new collaborators. With a focus on performance and scalability, we built Insider using modern technologies to ensure a seamless experience.",
+    technologies: [
+      "Node.js",
+      "Express",
+      "REST",
+      "TailwindCSS",
+      "Supabase",
+      "Next.js",
+      "TypeScript",
+    ],
+    imageUrl:
+      "https://utfs.io/f/qXy5qiyfXOB2VXvGYUOhGoYkPMZKIpTuQb7rw6s4OWFzHaXS",
+    projectLink: "https://insider.swisswebdev.ch/",
+  },
+
+  {
     title: "JerryFlowV2",
     description:
       "A powerful backend for the JerryFlowV2 project, covering everything from authentication to securing the app. We also handled hosting and server management for active user connections and reports.",

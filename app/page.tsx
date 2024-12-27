@@ -9,6 +9,7 @@ import Journey from "@/components/hooks/Journey";
 import OurPackages from "@/components/hooks/OurPackages";
 import OurProjects from "@/components/hooks/OurProjects";
 import OurServices from "@/components/hooks/OurServices";
+import ProjectTrackingSection from "@/components/hooks/ProjectTrackingSection";
 import TransitionLink from "@/components/hooks/TransitionLink";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
@@ -96,6 +97,11 @@ export default function Home() {
         <div className="w-screen min-h-screen h-auto snap-start">
           <div className="w-full h-screen pb-5 flex justify-center items-center bg-[#f3f3f3] text-[#101010] invert">
             <GrowthData />
+          </div>
+        </div>
+        <div className="w-screen min-h-screen h-screen snap-start">
+          <div className="w-full h-full pb-5 flex justify-center items-center bg-[#f3f3f3] text-[#101010]">
+            <ProjectTrackingSection />
           </div>
         </div>
         <div id="Portfolio" className="w-screen min-h-screen h-auto snap-start">

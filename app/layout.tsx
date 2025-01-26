@@ -77,7 +77,7 @@ export default function RootLayout({
         {/* Additional Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Swiss Web Dev" />
+        <meta name="author" content="Swiss Web Development" />
         <meta name="theme-color" content="#007ACC" />
         <link rel="canonical" href="https://www.swisswebdev.ch/" />
       </head>
